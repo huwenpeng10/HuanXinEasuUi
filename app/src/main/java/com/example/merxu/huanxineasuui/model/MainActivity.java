@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.merxu.huanxineasuui.R;
 import com.example.merxu.huanxineasuui.fragment.SettingsFragment;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.easeui.EaseConstant;

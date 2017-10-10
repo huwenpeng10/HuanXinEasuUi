@@ -17,7 +17,7 @@ public class EaseShowNormalFileActivity extends EaseBaseActivity {
 	private ProgressBar progressBar;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ease_activity_show_file);
 		progressBar = (ProgressBar) findViewById(R.id.progressBar);

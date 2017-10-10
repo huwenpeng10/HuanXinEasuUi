@@ -1,5 +1,6 @@
 package com.hyphenate.easeui.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -57,6 +58,7 @@ public class EaseConversationListFragment extends EaseBaseFragment{
     private EaseTitleBar title_bar;
     private PopupWindow popuwindow;
     private View view;
+    private Context mContext;
 
     protected boolean isConflict;
     
@@ -79,6 +81,7 @@ public class EaseConversationListFragment extends EaseBaseFragment{
     public void onActivityCreated(Bundle savedInstanceState) {
         if(savedInstanceState != null && savedInstanceState.getBoolean("isConflict", false))
             return;
+        mContext = getContext();
         super.onActivityCreated(savedInstanceState);
     }
 
@@ -110,10 +113,14 @@ public class EaseConversationListFragment extends EaseBaseFragment{
         popuwindow.setBackgroundDrawable(cd);
         
         popuwindow.setOutsideTouchable(true);
-       // 加载视图
-//        popuwindow.setContentView(view);
     }
-    
+
+    public void setBackgroundAlpha(float bgAlpha) {
+        WindowManager.LayoutParams lp = ((Activity) mContext).getWindow()
+                .getAttributes();
+        lp.alpha = bgAlpha;
+        ((Activity) mContext).getWindow().setAttributes(lp);
+    }
     @Override
     protected void setUpView() {
         conversationList.addAll(loadConversationList());
@@ -178,12 +185,21 @@ public class EaseConversationListFragment extends EaseBaseFragment{
                 popuwindow.setFocusable(true);
                 if(!popuwindow.isShowing()){
                     popuwindow.showAsDropDown(title_bar, 0,0,Gravity.RIGHT);
+                    setBackgroundAlpha(0.5f);//设置屏幕透明度
                 }else{
                     popuwindow.dismiss();
                 }
                 Log.e("add","add user ");
 //                startActivity(new Intent(getActivity(),EaseAddUserActivity.class));
 
+            }
+        });
+
+        popuwindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                // popupWindow隐藏时恢复屏幕正常透明度
+                setBackgroundAlpha(1.0f);
             }
         });
     }

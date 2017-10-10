@@ -14,7 +14,7 @@ public class ChatActivity extends EaseBaseActivity{
     String toChatUsername;
 
     @Override
-    protected void onCreate(Bundle arg0) {
+    public void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.activity_chat);
         activityInstance = this;

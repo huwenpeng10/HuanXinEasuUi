@@ -18,7 +18,7 @@ public class LoginActivity extends EaseBaseActivity{
     private EditText pwdView;
 
     @Override
-    protected void onCreate(Bundle arg0) {
+    public void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         if(EMClient.getInstance().isLoggedInBefore()){
             //enter to main activity directly if you logged in before.

@@ -32,7 +32,7 @@ public class EaseShowVideoActivity extends EaseBaseActivity{
 	private String localFilePath;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
