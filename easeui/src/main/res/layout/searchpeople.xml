@@ -3,16 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/write"
     >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:orientation="horizontal"
         android:background="#ededed"
         android:paddingLeft="7dp"
         android:paddingRight="7dp"
-        android:paddingTop="7dp">
+        android:paddingTop="7dp"
+        >
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -53,12 +55,15 @@
 
         </RelativeLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:text="取消"
-            android:background="@color/write"/>
-
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="取消"
+        android:background="@color/write"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.merxu.huanxineasuui.R;
 import com.example.merxu.huanxineasuui.fragment.SettingsFragment;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.easeui.EaseConstant;
@@ -16,11 +15,12 @@ import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.ui.EaseBaseActivity;
 import com.hyphenate.easeui.ui.EaseContactListFragment;
 import com.hyphenate.easeui.ui.EaseConversationListFragment;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends EaseBaseActivity{
+public class MainActivity extends EaseBaseActivity {
     private TextView unreadLabel;
     private Button[] mTabs;
     private EaseConversationListFragment huihuaFrameng;//会话
@@ -29,7 +29,6 @@ public class MainActivity extends EaseBaseActivity{
     private Fragment[] fragments;
     private int index;
     private int currentTabIndex;
-
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
@@ -66,6 +65,31 @@ public class MainActivity extends EaseBaseActivity{
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, huihuaFrameng)
                 .add(R.id.fragment_container, contactListFragment).hide(contactListFragment).show(huihuaFrameng)
                 .commit();
+        initSlidingMenu();
+    }
+
+    private void initSlidingMenu() {
+        // configure the SlidingMenu
+        SlidingMenu menu = new SlidingMenu(this);
+        menu.setMode(SlidingMenu.LEFT);
+        //设置阴影
+        menu.setOffsetFadeDegree(0.4f);
+        // 设置触摸屏幕的模式
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setShadowWidthRes(R.dimen.shadow_width);
+        menu.setShadowDrawable(R.color.colorAccent);
+
+        // 设置滑动菜单视图的宽度
+        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        // 设置渐入渐出效果的值
+        menu.setFadeDegree(0.35f);
+        /**
+         * SLIDING_WINDOW will include the Title/ActionBar in the content
+         * section of the SlidingMenu, while SLIDING_CONTENT does not.
+         */
+        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+        //为侧滑菜单设置布局
+        menu.setMenu(R.layout.slidingmenu_list);
     }
 
     /**
@@ -106,10 +130,17 @@ public class MainActivity extends EaseBaseActivity{
      */
     private Map<String, EaseUser> getContacts(){
         Map<String, EaseUser> contacts = new HashMap<String, EaseUser>();
-        for(int i = 1; i <= 10; i++){
-            EaseUser user = new EaseUser("easeuitest" + i);
-            contacts.put("easeuitest" + i, user);
-        }
+//        for(int i = 1; i <= 10; i++){
+//            EaseUser user = new EaseUser("easeuitest" + i);
+//            contacts.put("easeuitest" + i, user);
+//        }
+        EaseUser user ;
+        user = new EaseUser("jion");
+        contacts.put("user"+0, user);
+        user = new EaseUser("jack");
+        contacts.put("user"+1, user);
+        user = new EaseUser("qwer");
+        contacts.put("user"+2, user);
         return contacts;
     }
 }

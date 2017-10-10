@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/write"
+    android:paddingRight="20dp"
+    android:paddingLeft="10dp">
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="创建群聊"
+       android:textSize="40px"
+       android:gravity="center_vertical"
+       android:drawableLeft="@drawable/ic_launcher"/>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="加好友/群"
+       android:textSize="40px"
+       android:gravity="center_vertical"
+       android:drawableLeft="@drawable/ic_launcher"/>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="扫一扫"
+       android:textSize="40px"
+       android:gravity="center_vertical"
+       android:drawableLeft="@drawable/ic_launcher"/>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="面对面快传"
+       android:textSize="40px"
+       android:gravity="center_vertical"
+       android:drawableLeft="@drawable/ic_launcher"/>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="付款"
+       android:textSize="40px"
+       android:gravity="center_vertical"
+       android:drawableLeft="@drawable/ic_launcher"/>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="拍摄"
+       android:textSize="40px"
+       android:gravity="center_vertical"
+       android:drawableLeft="@drawable/ic_launcher"/>
+
+</LinearLayout>

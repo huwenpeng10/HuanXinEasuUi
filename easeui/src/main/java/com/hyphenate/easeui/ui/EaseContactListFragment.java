@@ -17,6 +17,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -49,7 +50,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * contact list
+ * contact list  通讯录
  * 
  */
 public class EaseContactListFragment extends EaseBaseFragment {
@@ -253,6 +254,9 @@ public class EaseContactListFragment extends EaseBaseFragment {
                         //filter out users in blacklist
                         EaseUser user = entry.getValue();
                         EaseCommonUtils.setUserInitialLetter(user);
+                        Log.e("user",""+user.getUsername());
+                        Log.e("user",""+user.getNick());
+                        Log.e("user",""+user.getNickname());
                         contactList.add(user);
                     }
                 }
@@ -286,6 +290,8 @@ public class EaseContactListFragment extends EaseBaseFragment {
         
         @Override
         public void onDisconnected(int error) {
+            Log.e("user","error"+error);
+            //207 206 305
             if (error == EMError.USER_REMOVED || error == EMError.USER_LOGIN_ANOTHER_DEVICE || error == EMError.SERVER_SERVICE_RESTRICTED) {
                 isConflict = true;
             } else {
@@ -312,7 +318,7 @@ public class EaseContactListFragment extends EaseBaseFragment {
     
     
     protected void onConnectionDisconnected() {
-        
+        Log.e("user","onConnectionDisconnected");
     }
     
     protected void onConnectionConnected() {

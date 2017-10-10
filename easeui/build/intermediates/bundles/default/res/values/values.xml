@@ -26,6 +26,7 @@
     <color name="common_bottom_bar_selected_bg">#161718</color>
     <color name="common_botton_bar_blue">#2ea7e0</color>
     <color name="common_top_bar_blue">#4ebcd3</color>
+    <color name="dddd">#0xb0000000</color>
     <color name="divider_list">#d4d4d4</color>
     <color name="emojicon_tab_nomal">#ffffff</color>
     <color name="emojicon_tab_selected">#D9D9D9</color>
@@ -38,6 +39,7 @@
     <color name="holo_green_light">#ff99cc00</color>
     <color name="holo_orange_light">#ffffbb33</color>
     <color name="holo_red_light">#ffff4444</color>
+    <color name="hui">#7777</color>
     <color name="list_itease_primary_color">#000</color>
     <color name="list_itease_secondary_color">#888888</color>
     <color name="orange">#FFA500</color>
@@ -415,16 +417,16 @@
     <style name="HeadScale" parent="android:Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/AnimHead</item>
         <item name="android:windowFrame">@null</item>
-        
+        <!-- 边框 -->
         <item name="android:windowIsFloating">true</item>
-        
+        <!-- 是否浮现在activity之上 -->
         <item name="android:windowIsTranslucent">true</item>
-        
+        <!-- 半透明 -->
         <item name="android:windowNoTitle">true</item>
-        
+        <!-- 无标题 -->
         <item name="android:windowBackground">@android:color/black</item>
         <item name="android:backgroundDimEnabled">false</item>
-        
+        <!-- 模糊 -->
     </style>
     <style name="MyAlertDialog" parent="android:Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -445,32 +447,32 @@
     <style name="MyDialogStyleBottom" parent="android:Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/AnimBottom</item>
         <item name="android:windowFrame">@null</item>
-        
+        <!-- 边框 -->
         <item name="android:windowIsFloating">true</item>
-        
+        <!-- 是否浮现在activity之上 -->
         <item name="android:windowIsTranslucent">true</item>
-        
+        <!-- 半透明 -->
         <item name="android:windowNoTitle">true</item>
-        
+        <!-- 无标题 -->
         <item name="android:windowBackground">@android:color/transparent</item>
-        
+        <!-- 背景透明 -->
         <item name="android:backgroundDimEnabled">true</item>
-        
+        <!-- 模糊 -->
     </style>
     <style name="MyDialogStyleTop" parent="android:Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/AnimTop2</item>
         <item name="android:windowFrame">@null</item>
-        
+        <!-- 边框 -->
         <item name="android:windowIsFloating">true</item>
-        
+        <!-- 是否浮现在activity之上 -->
         <item name="android:windowIsTranslucent">true</item>
-        
+        <!-- 半透明 -->
         <item name="android:windowNoTitle">true</item>
-        
+        <!-- 无标题 -->
         <item name="android:windowBackground">@android:color/transparent</item>
-        
+        <!-- 背景透明 -->
         <item name="android:backgroundDimEnabled">false</item>
-        
+        <!-- 模糊 -->
     </style>
     <style name="bottom_line_edit_text_style" parent="@android:style/Widget.EditText">
         <item name="android:gravity">center_vertical</item>

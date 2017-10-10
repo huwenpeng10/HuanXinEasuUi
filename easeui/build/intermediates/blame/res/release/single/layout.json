@@ -208,6 +208,10 @@
         "source": "E:\\MYASFILE\\HuanXinEasuUi\\easeui\\src\\main\\res\\layout\\ease_expression_gridview.xml"
     },
     {
+        "merged": "E:\\MYASFILE\\HuanXinEasuUi\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\popupwindow_item.xml",
+        "source": "E:\\MYASFILE\\HuanXinEasuUi\\easeui\\src\\main\\res\\layout\\popupwindow_item.xml"
+    },
+    {
         "merged": "E:\\MYASFILE\\HuanXinEasuUi\\easeui\\build\\intermediates\\res\\merged\\release\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\MerXu\\.android\\build-cache\\1b223f174704bf1f1578dfb670076cb461d24a0c\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },

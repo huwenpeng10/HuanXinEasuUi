@@ -2,9 +2,14 @@ package com.hyphenate.easeui.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.util.Pair;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +23,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.hyphenate.EMConnectionListener;
@@ -27,6 +33,7 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.easeui.R;
 import com.hyphenate.easeui.widget.EaseConversationList;
+import com.hyphenate.easeui.widget.EaseTitleBar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,6 +54,9 @@ public class EaseConversationListFragment extends EaseBaseFragment{
     protected EaseConversationList conversationListView;
     protected FrameLayout errorItemContainer;
     private RelativeLayout search;
+    private EaseTitleBar title_bar;
+    private PopupWindow popuwindow;
+    private View view;
 
     protected boolean isConflict;
     
@@ -61,7 +71,8 @@ public class EaseConversationListFragment extends EaseBaseFragment{
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.ease_fragment_conversation_list, container, false);
+        View view = inflater.inflate(R.layout.ease_fragment_conversation_list, container, false);
+        return view;
     }
 
     @Override
@@ -76,6 +87,7 @@ public class EaseConversationListFragment extends EaseBaseFragment{
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         conversationListView = (EaseConversationList) getView().findViewById(R.id.list);
         query = (EditText) getView().findViewById(R.id.query);
+        title_bar = (EaseTitleBar) getView().findViewById(R.id.title_bar);
 //        search = (RelativeLayout) getView().findViewById(R.id.search);
         // button to clear content in search bar
         clearSearch = (ImageButton) getView().findViewById(R.id.search_clear);
@@ -83,6 +95,23 @@ public class EaseConversationListFragment extends EaseBaseFragment{
         //edittext失去焦点
         query.clearFocus();
         query.setFocusable(false);
+        //设置title_bar 左右 显示按钮
+        title_bar.setRightImageResource(R.drawable.ic_launcher);
+        title_bar.setLeftImageResource(R.drawable.ic_launcher);
+
+        //初始化popupwindow
+        view = LayoutInflater.from(getContext()).inflate(R.layout.popupwindow_item,null);
+        //设置长宽度
+//        popuwindow = new PopupWindow(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popuwindow = new PopupWindow(view,
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+        //点击外部消失
+        ColorDrawable cd = new ColorDrawable(0xb0000000);
+        popuwindow.setBackgroundDrawable(cd);
+        
+        popuwindow.setOutsideTouchable(true);
+       // 加载视图
+//        popuwindow.setContentView(view);
     }
     
     @Override
@@ -140,6 +169,21 @@ public class EaseConversationListFragment extends EaseBaseFragment{
             public boolean onTouch(View v, MotionEvent event) {
                 hideSoftKeyboard();
                 return false;
+            }
+        });
+        title_bar.setRightLayoutClickListener(new OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View v) {
+                popuwindow.setFocusable(true);
+                if(!popuwindow.isShowing()){
+                    popuwindow.showAsDropDown(title_bar, 0,0,Gravity.RIGHT);
+                }else{
+                    popuwindow.dismiss();
+                }
+                Log.e("add","add user ");
+//                startActivity(new Intent(getActivity(),EaseAddUserActivity.class));
+
             }
         });
     }
