@@ -8,6 +8,7 @@
     android:paddingLeft="10dp">
 
    <TextView
+       android:id="@+id/popup_qunliao"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="创建群聊"
@@ -15,6 +16,7 @@
        android:gravity="center_vertical"
        android:drawableLeft="@drawable/ic_launcher"/>
    <TextView
+       android:id="@+id/popup_addfriend"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="加好友/群"
@@ -22,6 +24,7 @@
        android:gravity="center_vertical"
        android:drawableLeft="@drawable/ic_launcher"/>
    <TextView
+       android:id="@+id/popup_saoyisao"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="扫一扫"
@@ -29,6 +32,7 @@
        android:gravity="center_vertical"
        android:drawableLeft="@drawable/ic_launcher"/>
    <TextView
+       android:id="@+id/popup_kuaichuan"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="面对面快传"
@@ -36,6 +40,7 @@
        android:gravity="center_vertical"
        android:drawableLeft="@drawable/ic_launcher"/>
    <TextView
+       android:id="@+id/popup_fukuan"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="付款"
@@ -43,6 +48,7 @@
        android:gravity="center_vertical"
        android:drawableLeft="@drawable/ic_launcher"/>
    <TextView
+       android:id="@+id/popup_paishe"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="拍摄"

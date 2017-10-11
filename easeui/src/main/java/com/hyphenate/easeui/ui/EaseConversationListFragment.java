@@ -3,7 +3,6 @@ package com.hyphenate.easeui.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,6 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.hyphenate.EMConnectionListener;
 import com.hyphenate.EMConversationListener;
@@ -59,6 +59,7 @@ public class EaseConversationListFragment extends EaseBaseFragment{
     private PopupWindow popuwindow;
     private View view;
     private Context mContext;
+    private TextView popup_qunliao , popup_addfriend , popup_saoyisao , popup_kuaichuan , popup_fukuan , popup_paishe ;
 
     protected boolean isConflict;
     
@@ -104,17 +105,65 @@ public class EaseConversationListFragment extends EaseBaseFragment{
 
         //初始化popupwindow
         view = LayoutInflater.from(getContext()).inflate(R.layout.popupwindow_item,null);
+
+        initpopupwindow(view);
+
+    }
+
+    private void initpopupwindow(View view) {
+
+        popup_qunliao = (TextView) view.findViewById(R.id.popup_qunliao);
+        popup_addfriend = (TextView) view.findViewById(R.id.popup_addfriend);
+        popup_saoyisao = (TextView) view.findViewById(R.id.popup_saoyisao);
+        popup_kuaichuan = (TextView) view.findViewById(R.id.popup_kuaichuan);
+        popup_fukuan = (TextView) view.findViewById(R.id.popup_fukuan);
+        popup_paishe = (TextView) view.findViewById(R.id.popup_paishe);
         //设置长宽度
 //        popuwindow = new PopupWindow(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         popuwindow = new PopupWindow(view,
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         //点击外部消失
-        ColorDrawable cd = new ColorDrawable(0xb0000000);
-        popuwindow.setBackgroundDrawable(cd);
-        
         popuwindow.setOutsideTouchable(true);
-    }
+//        ColorDrawable cd = new ColorDrawable(0xb0000000);
+//        popuwindow.setBackgroundDrawable(cd);
+        popup_qunliao.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
+        popup_addfriend.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        popup_saoyisao.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        popup_kuaichuan.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        popup_fukuan.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        popup_paishe.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+    }
     public void setBackgroundAlpha(float bgAlpha) {
         WindowManager.LayoutParams lp = ((Activity) mContext).getWindow()
                 .getAttributes();
@@ -364,7 +413,7 @@ public class EaseConversationListFragment extends EaseBaseFragment{
             outState.putBoolean("isConflict", true);
         }
     }
-    
+
     public interface EaseConversationListItemClickListener {
         /**
          * click event for conversation list
